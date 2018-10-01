@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica;
+    }
+    .self-information {
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .location span {
+      font-size: 10px;
+      color: #F34949;
+    }
+    .location div span {
+      font-size: 16px;
+      color: #3B3B3B;
+    }
+    .chatImage {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+    .recommended {
+      margin: 20px;
+    }
+    .Header {
+      font-size: 20px;
+      color: #3B3B3B;
+      display: flex;
+      justify-content: space-between;
+    }
+    .viewAll {
+      text-decoration: none;
+      font-size: 14px;
+      color: #F34949; 
+    }
+    .Header-intro {
+      font-size: 12px;
+      color: #A9A9B0;
+    }
+    main {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 15px;
+      background: #FFFFFF;
+      box-shadow: 0px 20px 30px 10px rgba(59,59,59,0.05);
+    }
+    main::after {
+      content:"";
+      position:absolute;
+      z-index:-1;
+      left: 30px;
+      width:83%;
+      height:4%;
+      box-shadow: 0px 5px 10px 1px rgba(59,59,59,0.05);
+      border-radius: 15px;
+    }
+    .intro div {
+      margin: 10px 0px;
+    }
+    .image {
+      width: 295px;
+      height: 172px;
+      border-radius: 8px;
+    }
+    .recomended-stars {
+      list-style: none;
+      display: flex;
+    }
+    .size-price {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0px 10px;
+    }
+    .size-price button {
+      background: #FFFFFF;
+      border: 1px solid #DDDDDD;
+      width: 110px;
+      height: 30px;
+      border-radius: 3px;
+      display: flex;
+      justify-content: space-around;
+    }
+    .size-price button:hover {
+      border: 1px solid #F34949;
+    }
+    .size-price button:focus {
+      border: 1px solid #F34949;
+      
+    }
+    .size {
+      font-size: 10px;
+      color: #A9A9B0;
+    }
+    .size-price button:hover .size, .size-price button:focus .size {
+      color: #F34949;
+    }
+    .price {
+      font-size: 10px;
+      color: #3B3B3B;
+    }
+    .add-buy {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .buy, .add {
+      border: none;
+      width: 295px;
+      height: 30px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .buy {
+      background: #F8F8F8;
+    }
+    .add {
+      background: #F34949;
+      color: white;
+    }
+    .buy:hover {
+      background: rgb(165, 165, 165);
+    }
+    .add:hover {
+      background: rgb(192, 57, 57);
+    }
+  </style>
+  <body>
+    <div class="self-information">
+      <div class="location">
+        <span><svg t="1538409711767" class="icon" fill="#F34949" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3168" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10">
+          <defs><style type="text/css"></style></defs>
+          <path d="M511.999488 64.303538c-156.537196 0-283.434328 126.898155-283.434328 283.434328 0 47.625694 11.888771 92.422969 32.636305 131.838677l-0.103354 0.051165 250.9024 480.068753 247.800759-474.532667c22.654976-40.71019 35.633568-87.534636 35.633568-137.425929C795.433816 191.201693 668.536684 64.303538 511.999488 64.303538zM511.999488 445.800275c-48.136324 0-87.176478-39.040155-87.176478-87.211271 0-48.136324 39.040155-87.176478 87.176478-87.176478 48.170093 0 87.211271 39.040155 87.211271 87.176478C599.209736 406.759097 560.169581 445.800275 511.999488 445.800275z" p-id="3169"></path>
+        </svg>DELIVERY</span>
+        <div>
+          <span>Bangalore, India</span>
+        </div>
+      </div>
+      <div>
+        <img src="images/chatImage.ico" class="chatImage">
+      </div>
+    </div>
+    <div class="recommended">
+      <header>
+        <p class="Header">Recommended<span><a href="#" class="viewAll">View All</a></span></p>
+        <p class="Header-intro">Based on your purchase history</p>
+      </header>
+      <main>
+        <div class="image-div">
+          <img src="images/pisa10.jpg" class="image">
+        </div>
+        <div class="intro">
+          <p class="pisa-name">Veggie Cheese Extravaganza</p>
+          <div>
+            <ul class="recomended-stars">
+              <li class="star"><svg t="1538412271971" class="icon" fill="#F34949" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1862" xmlns:xlink="http://www.w3.org/1999/xlink" width="13" height="13">
+                <defs><style type="text/css"></style></defs>
+                <path d="M887 430.2c3.4-3.5 1.4-9.4-3.4-10.1l-250.2-38.2c-2-0.3-3.7-1.6-4.5-3.4l-112.3-239c-2.2-4.6-8.7-4.6-10.9 0l-112.3 239c-0.9 1.8-2.5 3.1-4.5 3.4l-250.2 38.2c-4.8 0.7-6.8 6.6-3.4 10.1l181.4 185.7a6.2 6.2 0 0 1 1.6 5.2l-42.9 262.7c-0.8 4.9 4.4 8.6 8.8 6.2l224-123.7c1.8-1 4-1 5.8 0L738 890c4.4 2.4 9.6-1.3 8.8-6.2L704 621c-0.3-1.9 0.3-3.8 1.6-5.2L887 430.2z" p-id="1863"></path>
+              </svg></li>
+              <li class="star"><svg t="1538412271971" class="icon" fill="#F34949" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1862" xmlns:xlink="http://www.w3.org/1999/xlink" width="13" height="13">
+                <defs><style type="text/css"></style></defs>
+                <path d="M887 430.2c3.4-3.5 1.4-9.4-3.4-10.1l-250.2-38.2c-2-0.3-3.7-1.6-4.5-3.4l-112.3-239c-2.2-4.6-8.7-4.6-10.9 0l-112.3 239c-0.9 1.8-2.5 3.1-4.5 3.4l-250.2 38.2c-4.8 0.7-6.8 6.6-3.4 10.1l181.4 185.7a6.2 6.2 0 0 1 1.6 5.2l-42.9 262.7c-0.8 4.9 4.4 8.6 8.8 6.2l224-123.7c1.8-1 4-1 5.8 0L738 890c4.4 2.4 9.6-1.3 8.8-6.2L704 621c-0.3-1.9 0.3-3.8 1.6-5.2L887 430.2z" p-id="1863"></path>
+              </svg></li>
+              <li class="star"><svg t="1538412271971" class="icon" fill="#F34949" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1862" xmlns:xlink="http://www.w3.org/1999/xlink" width="13" height="13">
+                <defs><style type="text/css"></style></defs>
+                <path d="M887 430.2c3.4-3.5 1.4-9.4-3.4-10.1l-250.2-38.2c-2-0.3-3.7-1.6-4.5-3.4l-112.3-239c-2.2-4.6-8.7-4.6-10.9 0l-112.3 239c-0.9 1.8-2.5 3.1-4.5 3.4l-250.2 38.2c-4.8 0.7-6.8 6.6-3.4 10.1l181.4 185.7a6.2 6.2 0 0 1 1.6 5.2l-42.9 262.7c-0.8 4.9 4.4 8.6 8.8 6.2l224-123.7c1.8-1 4-1 5.8 0L738 890c4.4 2.4 9.6-1.3 8.8-6.2L704 621c-0.3-1.9 0.3-3.8 1.6-5.2L887 430.2z" p-id="1863"></path>
+              </svg></li>
+              <li class="star"><svg t="1538412271971" class="icon" fill="#F34949" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1862" xmlns:xlink="http://www.w3.org/1999/xlink" width="13" height="13">
+                <defs><style type="text/css"></style></defs>
+                <path d="M887 430.2c3.4-3.5 1.4-9.4-3.4-10.1l-250.2-38.2c-2-0.3-3.7-1.6-4.5-3.4l-112.3-239c-2.2-4.6-8.7-4.6-10.9 0l-112.3 239c-0.9 1.8-2.5 3.1-4.5 3.4l-250.2 38.2c-4.8 0.7-6.8 6.6-3.4 10.1l181.4 185.7a6.2 6.2 0 0 1 1.6 5.2l-42.9 262.7c-0.8 4.9 4.4 8.6 8.8 6.2l224-123.7c1.8-1 4-1 5.8 0L738 890c4.4 2.4 9.6-1.3 8.8-6.2L704 621c-0.3-1.9 0.3-3.8 1.6-5.2L887 430.2z" p-id="1863"></path>
+              </svg></li>
+              <li class="star"><svg t="1538412271971" class="icon" fill="#F34949" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1862" xmlns:xlink="http://www.w3.org/1999/xlink" width="13" height="13">
+                <defs><style type="text/css"></style></defs>
+                <path d="M887 430.2c3.4-3.5 1.4-9.4-3.4-10.1l-250.2-38.2c-2-0.3-3.7-1.6-4.5-3.4l-112.3-239c-2.2-4.6-8.7-4.6-10.9 0l-112.3 239c-0.9 1.8-2.5 3.1-4.5 3.4l-250.2 38.2c-4.8 0.7-6.8 6.6-3.4 10.1l181.4 185.7a6.2 6.2 0 0 1 1.6 5.2l-42.9 262.7c-0.8 4.9 4.4 8.6 8.8 6.2l224-123.7c1.8-1 4-1 5.8 0L738 890c4.4 2.4 9.6-1.3 8.8-6.2L704 621c-0.3-1.9 0.3-3.8 1.6-5.2L887 430.2z" p-id="1863"></path>
+              </svg></li>
+            </ul>
+          </div>
+        </div>
+        <div class="size-price">
+          <button><span class="size">Medium</span><span class="price">₹450</span></button>
+          <button><span class="size">Large</span><span class="price">₹990</span></button>
+          <button><span class="size">Small</span><span class="price">₹220</span></button>
+        </div>
+        <div class="add-buy">
+          <button class="buy">Customize & Add</button>
+          <button class="add">Add to Cart</button>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
