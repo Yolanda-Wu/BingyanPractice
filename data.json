@@ -1,0 +1,20 @@
+[
+  {
+    "id": "main_picture",
+    "url": "images/main_picture.jpg",
+    "size_price": {
+      "Small": 220,
+      "Medium": 440,
+      "Large": 990
+    }
+  },
+  {
+    "id": "Pisa20",
+    "url": "images/pisa20.jpg",
+    "size_price": {
+      "Small": 220,
+      "Medium": 440,
+      "Large": 990
+    }
+  }
+]
