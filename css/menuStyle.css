@@ -3,12 +3,16 @@ body {
   padding: 0;
 }
 header {
-  margin: 20px 0 0 0;
-  text-align-last: center;
+  padding: 10px 0;
+  text-align: center;
+  top: 0;
+  background-color: white;
+  width: 100%;
+  position: fixed;
 }
 .arrow {
   width: 21px;
-  height: 14px;
+  height: 21px;
   position: absolute;
   left: 20px;
 }
@@ -18,8 +22,8 @@ header {
   color: #3B3B3B;
 }
 .menu-main {
-  margin: 0 20px;
-  padding: 0px;
+  margin: 20px 20px;
+  
   display: flex;
   justify-content: space-between;
 }
@@ -65,5 +69,52 @@ header {
   background-color: white;
   margin: 0;
   padding: 0;
+  border: none;
   outline: none;
+}
+.waterflow {
+  position: fixed;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+}
+.rect1,
+.rect2,
+.rect3,
+.rect4,
+.rect5 {
+  background: #7E7D7D;
+  width: 5px;
+  height: 5px;
+  margin: 0 5px 5px;
+  border-radius: 50%;
+}
+.rect {
+  width: 5px;
+  height: 5px;
+  margin: 0 5px 5px;
+  display: none;
+}
+.rect1 {
+  animation: 1s load infinite;
+}
+.rect2 {
+  animation: 1s 0.25s load infinite;
+}
+.rect3 {
+  animation: 1s 0.5s load infinite;
+}
+.rect4 {
+  animation: 1s 0.75s load infinite;
+}
+.rect3 {
+  animation: 1s 1s load infinite;
+}
+@keyframes load {
+  0% {background: #7E7D7D;}
+  100% {background: #A9A9B0;}
 }

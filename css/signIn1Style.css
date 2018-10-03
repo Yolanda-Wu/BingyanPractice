@@ -25,12 +25,21 @@
 .introduction {
   margin: 20px;
   text-align: center;
+  width: 335px;
 }
-.introduction span {
+.intro_header {
   font-family: Helvetica;
   color: #3B3B3B;
   font-size: 24px;
 }
+
+.description {
+  font-family: Helvetica;
+  font-size: 12px;
+  color: #A9A9B0;
+  line-height: 18px;
+}
+
 .control {
   list-style: none;
   margin: 0;
@@ -51,7 +60,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 70px;
+  margin: 66.5px 70px 70px;
 }
 button {
   width: 215px;
