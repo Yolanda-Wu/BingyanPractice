@@ -13,21 +13,55 @@ ul {
   padding: 0;
 }
 
+.back {
+  cursor: pointer;
+  display: block;
+}
+
 .arrow {
   width: 21px;
   height: 21px;
 }
 
-.heart {
-  width: 19px;
-  height: 19px;
+.collect {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0);
+  background-image: url(../icons/白框爱心.svg);
+  width: 20px;
+  height: 20px;
+}
+
+
+.collected {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  animation: 1s change forwards;
+}
+
+@keyframes change {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url(../icons/白框爱心.svg);
+  }
+  100% {
+    background-image: none;
+    background-color: #F34949;
+    -webkit-mask-image: url(../icons/爱心.svg);
+  }
 }
 
 header {
   background: url(../images/pisa10.jpg);
-  background-size: 375px 336px;
+  background-size: 100% 336px;
+  
   width: 375px;
   height: 336px;
+
   border-radius: 0 0 14px 14px;
   box-shadow: 0px 20px 30px 10px rgba(59,59,59,0.05);
 }
@@ -40,6 +74,7 @@ header {
 
 main {
   margin: 20px;
+  
 }
 
 .stars {
@@ -68,7 +103,7 @@ main {
   margin: 10px 0px 20px;
 }
 
-.size-price button {
+.sp_button, .selected {
   background: #FFFFFF;
   border: 1px solid #DDDDDD;
   outline: none;
@@ -79,11 +114,7 @@ main {
   justify-content: space-around;
 }
 
-.size-price button:hover {
-  border: 1px solid #F34949;
-}
-
-.size-price button:focus {
+.sp_button:hover {
   border: 1px solid #F34949;
 }
 
@@ -92,8 +123,14 @@ main {
   color: #A9A9B0;
 }
 
-.size-price button:hover .size,
-.size-price button:focus .size {
+.sp_button:hover .size {
+  color: #F34949;
+}
+
+.selected {
+  border: 1px solid #F34949;
+}
+.selected .size {
   color: #F34949;
 }
 
@@ -116,3 +153,4 @@ main {
 .add:hover {
   background: rgb(192, 57, 57);
 }
+

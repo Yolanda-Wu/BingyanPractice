@@ -1,26 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 .pictures-box {
   margin: 20px 0px;
   display: flex;
   flex-direction: column;
-  align-content: center;
-
+  align-items: center;
 }
 .pictures-list {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-.pictures-list li {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  flex-shrink: 0;
+  overflow: hidden;
 }
+
 .image {
   width: 335px;
   height: 335px;
   border-radius: 8px;
-  transition-delay: 5s;
+}
+.imageL, .imageR {
+  width: 315px;
+  height: 315px;
+  border-radius: 8px;
+}
+.img-liL, .img-liR {
+  border-radius: 8px;
+  height: 315px;
+  
+}
+.img-li {
+  margin: 0 10px;
+  
 }
 .introduction {
   margin: 20px;
@@ -55,6 +70,9 @@
   width: 5px;
   height: 5px;
   margin: 5px;
+}
+#selected {
+  opacity: 1;
 }
 .signup-buttons {
   display: flex;
@@ -114,4 +132,13 @@ footer {
 }
 .login-a:hover, .login-a:active {
   color: #3B3B3B;
+}
+
+@media screen and (max-width: 380px) {
+  
+  .pictures-list {
+    width: 375px;
+  }
+  
+  
 }

@@ -10,7 +10,11 @@ header {
   width: 100%;
   position: fixed;
 }
-.arrow {
+.back {
+  cursor: pointer;
+  display: block;
+  background-image: url(../icons/黑箭头.svg);
+  background-size: 100%;
   width: 21px;
   height: 21px;
   position: absolute;
@@ -64,14 +68,7 @@ header {
   right: 10px;
   bottom: 20px;
 }
-.pisa-button {
-  border: none;
-  background-color: white;
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-}
+
 .waterflow {
   position: fixed;
   bottom: 0;
@@ -117,4 +114,39 @@ header {
 @keyframes load {
   0% {background: #7E7D7D;}
   100% {background: #A9A9B0;}
+}
+
+@media screen and (min-width: 1000px) {
+  .img {
+    width: 315px;
+    height: 315px;
+  }
+  .menu-main {
+    justify-content: space-around;
+    margin: 30px 150px 20px;
+    box-shadow: 0px 10px 20px 10px rgba(59,59,59,0.05);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  .img {
+    width: 250px;
+    height: 250px;
+  }
+  .menu-main {
+    justify-content: space-around;
+    margin: 30px 100px 20px;
+    box-shadow: 0px 10px 20px 10px rgba(59,59,59,0.05);
+  }
+}
+@media screen and (min-width: 482px) and (max-width: 768px) {
+  .img {
+    width: 200px;
+    height: 200px;
+  }
+  .menu-main {
+    justify-content: space-around;
+    margin-top: 30px;
+    box-shadow: 0px 10px 20px 10px rgba(59,59,59,0.05);
+  }
 }

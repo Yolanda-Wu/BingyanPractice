@@ -87,10 +87,10 @@ body {
 }
 .recom-main::after {
   content:"";
+  display: block;
   position:absolute;
   z-index:-1;
-  left: 30px;
-  width:83%;
+  width:80%;
   height:4%;
   box-shadow: 0px 5px 10px 1px rgba(59,59,59,0.05);
   border-radius: 15px;
@@ -196,6 +196,8 @@ body {
   display: flex;
   justify-content: space-between;
   box-shadow: 0px 10px 20px 10px rgba(59,59,59,0.05);
+  border-radius: 15px;
+  margin-top: 20px;
 }
 footer {
   margin: 20px 0 60px;
@@ -205,4 +207,129 @@ footer {
   opacity: 0.7;
   font-size: 12px;
   color: #3B3B3B;
+}
+
+@media screen and (min-width: 1095px) {
+  body {
+    padding: 0 150px;
+  }
+  .recom-main {
+    display: flex;
+  }
+  .recom-main::after {
+    width: 70%;
+  }
+  .side-right {
+    margin: 0 20px;
+   
+  }
+  .add-buy {
+    display: flex;
+    flex-direction: column;
+  }
+  .image {
+    height: 250px;
+  }
+  .pisa-name {
+    font-size: 24px;
+  }
+  .recomended-stars {
+    margin: 20px 0;
+  }
+  .size-price {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 400px;
+  }
+  .menu-main {
+    justify-content: space-around;
+  }
+  .img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1095px) {
+  body {
+    padding: 0 30px;
+  }
+  .recom-main {
+    display: flex;
+  }
+  .side-right {
+    margin: 0 20px;
+   
+  }
+  .add-buy {
+    display: flex;
+    flex-direction: column;
+  }
+  .image {
+    height: 250px;
+  }
+  .pisa-name {
+    font-size: 24px;
+  }
+  .recomended-stars {
+    margin: 20px 0;
+  }
+  .size-price {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 330px;
+  }
+  .menu-main {
+    justify-content: space-around;
+  }
+  .img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (min-width: 705px) and (max-width: 768px) {
+  
+  .recom-main {
+    display: flex;
+  }
+  .side-right {
+    margin: 0 20px;
+   
+  }
+  .add-buy {
+    display: flex;
+    flex-direction: column;
+  }
+  .image {
+    height: 250px;
+  }
+  .pisa-name {
+    font-size: 24px;
+  }
+  .recomended-stars {
+    margin: 20px 0;
+  }
+  .size-price {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 330px;
+  }
+  .menu-main {
+    justify-content: space-around;
+  }
+  .img {
+    width: 220px;
+    height: 220px;
+  }
+}
+@media screen and (min-width: 430px) and (max-width: 705px) {
+  
+  .menu-main {
+    justify-content: space-around;
+  }
+  .img {
+    width: 180px;
+    height: 180px;
+  }
 }

@@ -1,15 +1,16 @@
-let pisaButtons = document.getElementsByClassName('pisa-button');
+let pisaAs = document.getElementsByClassName('pisa-a');
 
-for (let i = 0; i < pisaButtons.length; i++) {
-  pisaButtons[i].addEventListener('click', function () {
-    inNewPage(pisaButtons[i])
+for (let i = 0; i < pisaAs.length; i++) {
+  pisaAs[i].addEventListener('click', function () {
+    inNewPage(pisaAs[i])
   });
 }
 
 function inNewPage(button) {
   let name = button.getElementsByClassName('name')[0].innerHTML;
-  window.open('buyPisa.html?name=' + name);
+  window.open('buyPisa.html?name=' + name, '_top');
 }
+
 
 window.onscroll = function() {
   let windowHeight = document.documentElement.clientHeight;
