@@ -11,6 +11,19 @@ function inNewPage(button) {
   window.open('buyPisa.html?name=' + name, '_top');
 }
 
+let data;
+let xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4) {
+      if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+        data = xhr.responseText;
+      } else {
+        console.log("Request was unsuccessful: " + xhr.status);
+  }
+    }
+  }
+xhr.open("get","http://localhost:8080/",true);
+xhr.send(null);
 
 window.onscroll = function() {
   let windowHeight = document.documentElement.clientHeight;
@@ -73,8 +86,6 @@ let createData = function() {
   pisaDiv.appendChild(p_priceTag);
   return pisaDiv;
 }
-
-
 
 let getScrollTop = function() {
   let scrollTop = document.documentElement.scrollTop;
