@@ -1,11 +1,42 @@
 let getPisaName = function() {
-  var str = window.location.search;
+  let str = window.location.search;
 
-  var items = str.length ? str.split('=') : [];
-  var name = items[1];
-  return name;
+  let items = str.length ? str.split('=') : [];
+  let id = items[1];
+  return id;
 }
 
+let dataObj;
+let xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4) {
+      if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+        let data = xhr.responseText;
+        dataObj = JSON.parse(data);
+        load();
+      } else {
+        console.log("Request was unsuccessful: " + xhr.status);
+  }
+    }
+  }
+xhr.open("get","http://localhost:8080/OrderSystems/dataObj.json",true);
+xhr.send(null);
+
+let load = function() {
+  let pisaName =document.getElementsByClassName('pisa-name')[0];
+  let sizePrice = document.getElementsByClassName('size-price')[0];
+  let sizes = sizePrice.getElementsByClassName('size');
+  let prices = sizePrice.getElementsByClassName('price');
+
+  let pisaData = dataObj[getPisaName()];
+  console.log(pisaData["name"]);
+
+  pisaName.innerHTML = pisaData["name"];
+  for (let i = 0; i < sizes.length; i++) {
+    prices[i].innerHTML = '₹' + pisaData["size_price"][`${sizes[i].innerHTML}`];
+  }
+}
+ 
 let Buttons = document.getElementsByClassName('size-price');
 let sizeButtons = Buttons[0].children;
 let crustButtons = Buttons[1].children;

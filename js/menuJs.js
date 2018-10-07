@@ -1,30 +1,31 @@
-let pisaAs = document.getElementsByClassName('pisa-a');
 
-for (let i = 0; i < pisaAs.length; i++) {
-  pisaAs[i].addEventListener('click', function () {
-    inNewPage(pisaAs[i])
-  });
-}
-
-function inNewPage(button) {
-  let name = button.getElementsByClassName('name')[0].innerHTML;
-  window.open('buyPisa.html?name=' + name, '_top');
-}
-
-let data;
+let dataArr;
 let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
       if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
-        data = xhr.responseText;
+        let data = xhr.responseText;
+        dataArr = JSON.parse(data);
+        load();
       } else {
         console.log("Request was unsuccessful: " + xhr.status);
   }
     }
   }
-xhr.open("get","http://localhost:8080/",true);
+xhr.open("get","http://localhost:8080/OrderSystems/dataArr.json",true);
 xhr.send(null);
+let index = 0;
 
+let load = function() {
+  for (let i = 0; i < 4; i++) {
+    if (index == dataArr.length) {
+      break;
+    }
+    appendData();
+  }
+}
+
+ 
 window.onscroll = function() {
   let windowHeight = document.documentElement.clientHeight;
   let waterflow = document.getElementById('waterflow');
@@ -32,9 +33,12 @@ window.onscroll = function() {
   
   if (waterflowPosition == windowHeight) {
     loadCss();
-    appendData();
-    appendData();
-    appendData();
+    for (let i = 0; i < 4; i++) {
+      if (index == dataArr.length) {
+        break;
+      }
+      appendData();
+    }
     removeCss();
   }
 }
@@ -66,24 +70,40 @@ let createData = function() {
   pisaDiv.className = 'pisa';
   let imgDiv = document.createElement('div');
   imgDiv.className = 'img-div';
+  let pisaA = document.createElement('a');
+  pisaA.className = 'pisa-a';
+  pisaA.id = dataArr[index]["id"];
   let img = document.createElement('img');
   img.className = 'img';
-  img.src = '../images/pisa17.jpg';
+  img.id = dataArr[index]["id"];
+  img.src = dataArr[index]["url"];
   let p_name = document.createElement('p');
   p_name.className= 'name';
-  p_name.innerHTML = 'Pisa17';
+  p_name.innerHTML = dataArr[index]["name"];
   let p_priceTag = document.createElement('p');
   p_priceTag.innerText = 'Start from';
   p_priceTag.className = 'priceTag';
   let span = document.createElement('span');
   span.className = 'min-price';
-  span.innerHTML = '₹199';
+  span.innerHTML = dataArr[index]["size_price"]["Small"];
+  index++;
 
   imgDiv.appendChild(img);
+  pisaA.appendChild(imgDiv);
+  pisaA.appendChild(p_name);
+  pisaA.appendChild(p_priceTag);
   p_priceTag.appendChild(span);
-  pisaDiv.appendChild(imgDiv);
-  pisaDiv.appendChild(p_name);
-  pisaDiv.appendChild(p_priceTag);
+  pisaDiv.appendChild(pisaA);
+
+  pisaA.addEventListener('click', function () {
+    inNewPage(pisaA);
+  });
+
+function inNewPage(a) {
+  let id = a.id;
+  window.open('buyPisa.html?id=' + id, '_top');
+}
+
   return pisaDiv;
 }
 

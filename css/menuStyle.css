@@ -31,6 +31,9 @@ header {
   display: flex;
   justify-content: space-between;
 }
+.pisa-a {
+  cursor: pointer;
+}
 .img {
   width: 155px;
   height: 155px;
