@@ -1,13 +1,13 @@
 window.onload = function () {
   let dots = document.getElementsByClassName('control-dot');
   let imgList = [{
-    src: "../images/pisa3.jpg",
+    src: "OrderSystems/images/pisa3.jpg",
     introduction: "Pisa4"
   }, {
-    src: "../images/pisa4.jpg",
+    src: "OrderSystems/images/pisa4.jpg",
     introduction: "Pisas"
   }, {
-    src: "../images/pisa6.jpeg",
+    src: "OrderSystems/images/pisa6.jpeg",
     introduction: "Pisa2"
   }]
 

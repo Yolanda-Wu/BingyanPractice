@@ -1,22 +1,22 @@
 {
   "A-0001": {
     "name": "Pisa1",
-    "url": "images/pisa1.jpg",
+    "url": "../images/pisa1.jpg",
     "size_price": {
       "Small": 220,
-      "Medium": 330,
+      "Medium": 440,
       "Large": 990
     },
-    "collected": true,
+    "collected": false,
     "bought": false
   },
   "A-0002": {
     "name": "pisa2",
-    "url": "images/pisa2.jpg",
+    "url": "../images/pisa2.jpg",
     "size_price": {
       "Small": 220,
       "Medium": 440,
-      "Large": 800
+      "Large": 990
     },
     "collected": false,
     "bought": false

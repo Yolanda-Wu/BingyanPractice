@@ -31,7 +31,8 @@ let load = function() {
   let prices = sizePrice.getElementsByClassName('price');
   let collect = document.getElementsByClassName('collect')[0];
 
-  
+  let header = document.getElementsByTagName('header')[0];
+  header.style.
   console.log(pisaData["name"]);
 
   pisaName.innerHTML = pisaData["name"];
@@ -99,6 +100,6 @@ collectButton.addEventListener('click', function() {
   }
   xhrPost.open("post",`http://localhost:8080/OrderSystems/dataObj.json/?id=${getPisaId()}&collected=${pisaData["collected"]}`,true);
   xhrPost.send(null);
-  alert('send');
+  
 })
 

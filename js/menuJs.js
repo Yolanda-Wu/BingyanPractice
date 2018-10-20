@@ -9,7 +9,7 @@ let xhr = new XMLHttpRequest();
         load();
       } else {
         console.log("Request was unsuccessful: " + xhr.status);
-  }
+      }
     }
   }
 xhr.open("get","http://localhost:8080/OrderSystems/dataArr.json",true);
@@ -101,7 +101,7 @@ let createData = function() {
 
 function inNewPage(a) {
   let id = a.id;
-  window.open('buyPisa.html?id=' + id, '_top');
+  window.open('buyPisa.html?pisa_id=' + id, '_top');
 }
 
   return pisaDiv;
