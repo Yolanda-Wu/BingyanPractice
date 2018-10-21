@@ -13,7 +13,7 @@ header {
 .back {
   cursor: pointer;
   display: block;
-  background-image: url(../icons/黑箭头.svg);
+  background-image: url(../icons/blackArrow.svg);
   background-size: 100%;
   width: 21px;
   height: 21px;

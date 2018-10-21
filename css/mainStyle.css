@@ -61,28 +61,28 @@ ul {
 .home a {
   opacity: 0.5;
   background-color: #3B3B3B;
-  -webkit-mask-image: url(../icons/首页.svg);
+  -webkit-mask-image: url(../icons/home.svg);
 }
 
 .new a {
   opacity: 0.5;
   background-color: #3B3B3B;
-  -webkit-mask-image: url(../icons/8\ \(6\).svg);
+  -webkit-mask-image: url(../icons/new.svg);
 }
 .find a {
   opacity: 0.5;
   background-color: #3B3B3B;
-  -webkit-mask-image: url(../icons/资源\ 82.svg);
+  -webkit-mask-image: url(../icons/find.svg);
 }
 .cart a {
   opacity: 0.5;
   background-color: #3B3B3B;
-  -webkit-mask-image: url(../icons/8\ \(13\).svg);
+  -webkit-mask-image: url(../icons/cart.svg);
 }
 .list a {
   opacity: 0.5;
   background-color: #3B3B3B;
-  -webkit-mask-image: url(../icons/7\ \(3\).svg);
+  -webkit-mask-image: url(../icons/list.svg);
 }
 
 #selected {

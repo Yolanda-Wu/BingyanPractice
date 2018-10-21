@@ -1,7 +1,8 @@
-var http = require('http');
-var fs = require('fs');
-var url = require('url');
-var querystring = require("querystring");
+let http = require('http');
+let fs = require('fs');
+let url = require('url');
+let querystring = require("querystring");
+let path = require('path');
  
  
 http.createServer(function (request, response) {
@@ -12,44 +13,39 @@ http.createServer(function (request, response) {
   // 输出请求的文件名
   console.log("Request for " + pathname + " received.");
   //解决跨域
-  response.setHeader("Access-Control-Allow-Origin", "*");
+  response.setHeader("Access-Control-Allow-Origin", "http://localhost:8080/");
+  response.setHeader("Access-Control-Allow-Credentials", "true");
 
   console.log(request.method);
   console.log(pathname);
 
+  let body = "";
+  request.on('data', function (chunk) {
+    body += chunk;
+  });
+  
+
   // 从文件系统中读取请求的文件内容
   if (request.method === 'GET') {
-    if (pathname == '/') {
-      fs.readFile('index.html', function (err, data) {
-        if (err) {
-          console.log(err);
-          response.writeHead(404, { 'Content-Type': 'text/html' });
-        } else {
-          response.writeHead(200, { 'Content-Type': 'text/html' });
-          response.write(data.toString());
-        }
-        //  发送响应数据
-        response.end();
-      });
-    } else if (pathname == '/OrderSystems/user.json/') {
-      login(params, pathname, response);
-    } else if (pathname == '/OrderSystems/dataArr.json'){
-      sendData(pathname, response);
-    } else {
-      fs.readFile(pathname, function (err, data) {
-        if (err) {
-          console.log(err);
-          response.writeHead(404, { 'Content-Type': 'text/css' });
-        } else {
-          response.writeHead(200, { 'Content-Type': 'text/css' });
-          response.write(data);
-        }
-        //  发送响应数据
-        response.end();
-      });
+    switch (path.extname(pathname)) {
+      case '': sendHtml('index.html', response); break;
+      case '.js': sendSheet(pathname, response); break;
+      case '.css': sendSheet(pathname, response); break;
+      case '.html': sendHtml(pathname, response); break;
+      case '.json': sendData(pathname, response); break;
+      case '.svg': sendSvg(pathname, response); break;
+      default : sendData(pathname, response); break; 
     }
+    
   } else if (request.method === 'POST') {
-    postCollection(pathname, params, response);
+    request.on('end', function () {
+      body = querystring.parse(body);
+      if (body.id != undefined) {
+        login(body, '/OrderSystems/user.json', response);
+      } else {
+        postCollection(pathname, params, response);
+      }
+    });
   }
 
 }).listen(8080);
@@ -60,9 +56,51 @@ let sendData = function(pathname,response) {
   fs.readFile(pathname, function (err, data) {
     if (err) {
       console.log(err);
+      response.writeHead(404, { 'Content-Type': 'application/json' });
+    } else {
+      response.writeHead(200, { 'Content-Type': 'application/json' });
+      response.write(data);
+    }
+    //  发送响应数据
+    response.end();
+  });
+}
+
+let sendHtml = function(pathname, response) {
+  fs.readFile(pathname, function (err, data) {
+    if (err) {
+      console.log(err);
       response.writeHead(404, { 'Content-Type': 'text/html' });
     } else {
       response.writeHead(200, { 'Content-Type': 'text/html' });
+      response.write(data.toString());
+    }
+    //  发送响应数据
+    response.end();
+  });
+}
+
+let sendSvg = function(pathname, response) {
+  fs.readFile(pathname, function (err, data) {
+    if (err) {
+      console.log(err);
+      response.writeHead(404, { 'Content-Type': 'image/svg+xml' });
+    } else {
+      response.writeHead(200, { 'Content-Type': 'image/svg+xml' });
+      response.write(data.toString());
+    }
+    //  发送响应数据
+    response.end();
+  });
+}
+
+let sendSheet = function(pathname, response) {
+  fs.readFile(pathname, function (err, data) {
+    if (err) {
+      console.log(err);
+      response.writeHead(404, { 'Content-Type': 'text/css' });
+    } else {
+      response.writeHead(200, { 'Content-Type': 'text/css' });
       response.write(data);
     }
     //  发送响应数据

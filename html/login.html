@@ -1,21 +1,19 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-
+    <meta charset="utf-8">
   </head>
   <body>
     <input type="text" id="user_id" placeholder="please enter your id">
     <input type="password" id="password" placeholder="please enter your password">
-    <button type="button" id="submit">登录</button>
+    <button type="button" id="submit">SIGN IN</button>
   </body>
   <script type="text/javascript">
-  window.onload = function() {
+    window.onload = function () {
     let userId = document.getElementById("user_id");
     let password = document.getElementById("password");
     let submit = document.getElementById("submit");
 
-    
-    
     submit.addEventListener('click', function () {
       let user = {};
       user.id = userId.value;
@@ -26,8 +24,9 @@
           if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
             let response = JSON.parse(xhr.responseText);
             if (response["ok"]) {
-              console.log(document.cookie);
-              //window.open(`main.html?user_id=${user.id}`, '_top');
+              ajax();
+              //console.log(xhr.getAllResponseHeaders());
+              //window.open('http://localhost:8080/OrderSystems/html/main.html', '_top');
             } else {
               alert(response["msg"]);
             }
@@ -36,12 +35,27 @@
           }
         }
       }
-      xhr.open("get", `http://localhost:8080/OrderSystems/user.json/?id=${user.id}&password=${user.password}`);
-      xhr.send(null);
+      xhr.open("post", `http://localhost:8080/OrderSystems`);
+      xhr.send(`id=${user.id}&password=${user.password}`);
     });
-    
+
+    let ajax = function() {
+      let xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+            console.log(xhr.responseText);
+          } else {
+            console.log("Request was unsuccessful: " + xhr.status);
+          }
+        }
+      }
+      xhr.open("get", `http://localhost:8080/OrderSystems/html/main.html`);
+      xhr.withCredentials = true;
+      xhr.send(null);
+    }
   }
-    
-    
+
+  
   </script>
 </html>
